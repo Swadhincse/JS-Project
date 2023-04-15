@@ -1,24 +1,31 @@
-<!-- @format -->
+let arr = [  { id: 1, name: "john", age: "18", profession: "developer" },  { id: 2, name: "jack", age: "20", profession: "developer" },  { id: 3, name: "karen", age: "19", profession: "admin" },];
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <button onclick="PrintStudentswithMap()">
-      Console log Students with Map
-    </button>
-    <button onclick="PrintStudentsbyForEach()">
-      Console log Students with foreach
-    </button>
-    <button onclick="addData()">Console New Data with 4th Student</button>
-    <button onclick="removeFailedStudent()">Remove Failed Student</button>
-    <button onclick="concatenateArray()">concatenateArray</button>
+function PrintDeveloperbyMap() {
+  const developers = arr.filter(employee => employee.profession === "developer");
+  console.log(developers);
+}
 
-    <script src="./script.js"></script>
-  </body>
-</html>
+function PrintDeveloperbyForEach() {
+  arr.forEach(employee => {
+    if (employee.profession === "developer") {
+      console.log(employee);
+    }
+  });
+}
+
+function addData() {
+  const newEmployee = {id:4,name:"susan",age:"20",profession:"intern"};
+  arr.push(newEmployee);
+  console.log(arr);
+}
+
+function removeAdmin() {
+  arr = arr.filter(employee => employee.profession !== "admin");
+  console.log(arr);
+}
+
+function concatenateArray() {
+  const newArray = [{id:5,name:"lisa",age:"22",profession:"engineer"},{id:6, name:"max",age:"25", profession:"designer"},{id:7, name:"jane", age:"21",profession:"manager"}];
+  const concatenatedArray = arr.concat(newArray);
+  console.log(concatenatedArray);
+}
